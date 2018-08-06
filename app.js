@@ -1,5 +1,8 @@
 const express = require('express');
+const bodyParser = require('body-parser.json');
 const app = express();
+
+
 const { Product } = require('./product')
 const port = 3000;
 
@@ -36,6 +39,14 @@ app.get('/products/:id',(req,res) => {
     }
 });
 
+// to create product
+
+app.post('/products',(req,res) => {
+    
+    let product = new Product(req.body);
+    product.save();
+    res.send(product); 
+})
 app.listen(port,() => {
     console.log('Listening on port',port);
 })

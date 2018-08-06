@@ -1,4 +1,14 @@
 class Product {
+    constructor(params){
+        this.id = params.id;
+        this.name = params.name;
+        this.price = params.price;
+    }
+
+    save(){
+        Product.data.push(this)
+    }
+
 
     static findAll(){
         return Product.data;
