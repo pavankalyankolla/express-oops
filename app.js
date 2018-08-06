@@ -1,7 +1,8 @@
 const express = require('express');
-const bodyParser = require('body-parser.json');
-const app = express();
+const bodyParser = require('body-parser');
 
+const app = express();
+app.use(bodyParser.json());
 
 const { Product } = require('./product')
 const port = 3000;
