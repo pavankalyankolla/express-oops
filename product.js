@@ -2,11 +2,16 @@ class Product {
     constructor(params){
         this.id = params.id;
         this.name = params.name;
-        this.price = params.price;
+        this.price = params.price
     }
 
-    save(){
-        Product.data.push(this)
+    save(){ 
+        if(this.price <= 0){
+            return 'price could not be 0'
+        }
+        else{
+            Product.data.push(this)
+        }
     }
 
 

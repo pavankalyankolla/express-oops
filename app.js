@@ -45,9 +45,12 @@ app.get('/products/:id',(req,res) => {
 app.post('/products',(req,res) => {
     
     let product = new Product(req.body);
-    product.save();
-    res.send(product); 
-})
+  res.send(product.save());
+    //  res.send(product); 
+
+});
+
+
 app.listen(port,() => {
     console.log('Listening on port',port);
 })
