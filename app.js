@@ -50,6 +50,32 @@ app.post('/products',(req,res) => {
 
 });
 
+// update one product
+app.put('/products/:id',(req,res) => {
+    let product = Product.findOneAndUpdate(req.params.id,req.body);
+    if(product){
+        res.send(product);
+    } else {
+        res.send({
+            notice : 'record not found'
+        });
+    }
+});
+
+//delete one product
+app.delete('/products/:id',(req,res) => {
+    let index = Product.findOneAndRemove(req.params.id);
+    if(index < 0){
+        res.send({
+            notice : 'record not found'
+        });
+    } 
+    res.send({
+        notice : 'Successfully deleted the record'
+    })
+});
+
+
 
 app.listen(port,() => {
     console.log('Listening on port',port);
