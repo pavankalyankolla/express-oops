@@ -38,7 +38,7 @@ class Product {
     static findByName(name){
         return Product.data.find((product) => {
             return product.name == name
-        })
+        });
     }
 
 

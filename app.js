@@ -26,18 +26,20 @@ app.get('/products',(req,res) => {
     res.send(products);
 });
 
+//find by name
 app.get('/products/name/:name',(req,res) => {
     let product = Product.findByName(req.params.name);
     if(product){
         res.send(product);
     } else {
         res.send({
-            notice : `product with ${name} is found`
+            notice : `product with ${req.params.name} is found`
         });
     }
 });     
 
-
+//sort by price
+app.get('/products')
 
 
 // get one product
