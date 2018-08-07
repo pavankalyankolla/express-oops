@@ -39,7 +39,9 @@ app.get('/products/name/:name',(req,res) => {
 });     
 
 //sort by price
-app.get('/products')
+app.get('/products',(req,res) => {
+    
+})
 
 
 // get one product
